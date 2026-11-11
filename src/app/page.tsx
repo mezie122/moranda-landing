@@ -2,14 +2,17 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
-import HeroCanvas from '@/components/HeroCanvas';
-import WebGLBackground from '@/components/WebGLBackground';
-import TechBackgroundCanvas from '@/components/TechBackgroundCanvas';
-import AdminPanel from '@/components/AdminPanel';
+
+// Dynamically import canvas/WebGL components with SSR disabled to prevent server build crashes
+const WebGLBackground = dynamic(() => import('@/components/WebGLBackground'), { ssr: false });
+const HeroCanvas = dynamic(() => import('@/components/HeroCanvas'), { ssr: false });
+const TechBackgroundCanvas = dynamic(() => import('@/components/TechBackgroundCanvas'), { ssr: false });
+const AdminPanel = dynamic(() => import('@/components/AdminPanel'), { ssr: false });
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
