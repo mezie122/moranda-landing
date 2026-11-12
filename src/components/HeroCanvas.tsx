@@ -5,7 +5,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       mesh: any;
