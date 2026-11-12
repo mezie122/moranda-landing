@@ -251,7 +251,6 @@ export default function MorandaGroupHome() {
           <span>{siteState.hero.badgeText}</span>
         </div>
 
-        {/* Main Headline styled in Moranda Blue gradient */}
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.15] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(37,99,235,0.4)]">
           {siteState.hero.title}
         </h1>
@@ -303,7 +302,7 @@ export default function MorandaGroupHome() {
         </div>
       </section>
 
-      {/* Portfolio Section with Rotating Sphere Background */}
+      {/* Portfolio Section */}
       <section id="portfolio" className="scroll-reveal relative z-10 py-20 px-6 max-w-6xl mx-auto border-t border-slate-800/60 overflow-hidden">
         <HeroCanvas />
 
