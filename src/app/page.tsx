@@ -95,6 +95,8 @@ const SOCIALS = [
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [siteState, setSiteState] = useState<any>({});
 
   useEffect(() => {
     setIsMounted(true);
@@ -111,7 +113,14 @@ export default function Home() {
       )}
 
       {/* Hidden / Floating Admin Panel */}
-      {isMounted && <AdminPanel />}
+      {isMounted && (
+        <AdminPanel
+          isOpen={isAdminOpen}
+          onClose={() => setIsAdminOpen(false)}
+          siteState={siteState}
+          onUpdateSiteState={setSiteState}
+        />
+      )}
 
       {/* Top Glass Navigation */}
       <header className="fixed top-0 inset-x-0 z-50 border-b border-slate-800/60 bg-slate-950/75 backdrop-blur-md">
